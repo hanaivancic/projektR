@@ -5,7 +5,7 @@ class CreateStudents < ActiveRecord::Migration[6.1]
       t.string :lastName
       t.integer :coinNumber
 
-      t.references :class, foreign_key: true
+      t.references :classroom, foreign_key: true
 
       t.timestamps
     end
