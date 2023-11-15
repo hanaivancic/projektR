@@ -8,7 +8,7 @@
 #  updated_at :datetime         not null
 #
 class Deck < ApplicationRecord
-  belongs_to :owner
+  belongs_to :owner,  polymorphic: true
   has_many :questions, dependent: :destroy
 
   validates :name, presence: true, length: { minimum: 2 }

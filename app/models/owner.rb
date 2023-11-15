@@ -10,6 +10,7 @@
 #  updated_at  :datetime         not null
 #
 class Owner < ApplicationRecord
-  belongs_to :ownable, polymorphic: true
+  has_many :decks, as: :owner
+
   validates :name, presence: true
 end

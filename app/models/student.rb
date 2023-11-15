@@ -19,7 +19,7 @@
 #  fk_rails_...  (classroom_id => classrooms.id)
 #
 class Student < ApplicationRecord
-  has_one :owner, as: :ownable
+  has_many :decks, as: :owner
   belongs_to :classroom
   has_many :student_questions, dependent: :destroy
   has_one :statistic, dependent: :destory
