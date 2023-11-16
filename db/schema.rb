@@ -25,8 +25,10 @@ ActiveRecord::Schema.define(version: 2023_11_15_074316) do
 
   create_table "decks", force: :cascade do |t|
     t.string "name"
+    t.bigint "owner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["owner_id"], name: "index_decks_on_owner_id"
   end
 
   create_table "owners", force: :cascade do |t|
@@ -104,6 +106,7 @@ ActiveRecord::Schema.define(version: 2023_11_15_074316) do
   end
 
   add_foreign_key "classrooms", "schools"
+  add_foreign_key "decks", "owners"
   add_foreign_key "questions", "decks"
   add_foreign_key "statistics", "students"
   add_foreign_key "student_questions", "questions"
