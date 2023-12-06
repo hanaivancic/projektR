@@ -1,10 +1,22 @@
 # == Schema Information
 #
-# Table name: owners
+# Table name: students
 #
-#  id         :bigint           not null, primary key
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id           :bigint           not null, primary key
+#  coinNumber   :integer
+#  firstName    :string
+#  lastName     :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  classroom_id :bigint
+#
+# Indexes
+#
+#  index_students_on_classroom_id  (classroom_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (classroom_id => classrooms.id)
 #
 class StudentSerializer < Blueprinter::Base
   identifier :id

@@ -32,8 +32,11 @@ ActiveRecord::Schema.define(version: 2023_11_15_074316) do
   end
 
   create_table "owners", force: :cascade do |t|
+    t.string "owned_type"
+    t.bigint "owned_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["owned_type", "owned_id"], name: "index_owners_on_owned"
   end
 
   create_table "questions", force: :cascade do |t|

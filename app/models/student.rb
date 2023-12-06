@@ -1,12 +1,25 @@
 # == Schema Information
 #
-# Table name: owners
+# Table name: students
 #
-#  id         :bigint           not null, primary key
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id           :bigint           not null, primary key
+#  coinNumber   :integer
+#  firstName    :string
+#  lastName     :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  classroom_id :bigint
 #
-class Student < Owner
+# Indexes
+#
+#  index_students_on_classroom_id  (classroom_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (classroom_id => classrooms.id)
+#
+class Student < ApplicationRecord
+  has_one :owner, as: :owned
   belongs_to :classroom
   has_many :student_questions, dependent: :destroy
   has_one :statistic, dependent: :destory
