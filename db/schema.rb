@@ -32,9 +32,6 @@ ActiveRecord::Schema.define(version: 2023_11_15_074316) do
   end
 
   create_table "owners", force: :cascade do |t|
-    t.string "name"
-    t.string "ownableType"
-    t.integer "ownableId"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -78,7 +75,7 @@ ActiveRecord::Schema.define(version: 2023_11_15_074316) do
   end
 
   create_table "students", force: :cascade do |t|
-    t.string "name"
+    t.string "firstName"
     t.string "lastName"
     t.integer "coinNumber"
     t.bigint "classroom_id"
