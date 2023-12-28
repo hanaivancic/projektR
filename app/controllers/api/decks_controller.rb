@@ -3,7 +3,7 @@ module Api
     before_action :load_deck, except: [:index, :create]
 
     def index
-      render json: DeckSerializer.render_as_json(Deck.all.order(name: :asc), root: 'decks')
+      render json: DeckSerializer.render_as_json(Deck.where(owner: @current_user).or(Deck.where(owner: @current_user.classroom)).order(name: :asc), root: 'decks')
     end
 
     def show

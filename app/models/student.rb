@@ -19,6 +19,8 @@
 #  fk_rails_...  (classroom_id => classrooms.id)
 #
 class Student < ApplicationRecord
+  has_secure_token
+  
   has_one :owner, as: :owned
   belongs_to :classroom
   has_many :student_questions, dependent: :destroy
