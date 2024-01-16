@@ -2,25 +2,29 @@
 #
 # Table name: decks
 #
-#  id         :bigint           not null, primary key
-#  name       :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  owner_id   :bigint
+#  id           :bigint           not null, primary key
+#  name         :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  classroom_id :bigint
+#  student_id   :bigint
 #
 # Indexes
 #
-#  index_decks_on_owner_id  (owner_id)
+#  index_decks_on_classroom_id  (classroom_id)
+#  index_decks_on_student_id    (student_id)
 #
 # Foreign Keys
 #
-#  fk_rails_...  (owner_id => owners.id)
+#  fk_rails_...  (classroom_id => classrooms.id)
+#  fk_rails_...  (student_id => students.id)
 #
 class DeckSerializer < Blueprinter::Base
   identifier :id
 
   fields :name, :created_at, :updated_at
 
-  association :owner, blueprint: OwnerSerializer
-  association :teachers, blueprint: TeacherSerializer, default: []
+  association :student, blueprint: StudentSerializer, default: null
+  association :classroom, blueprint: ClassrooomSerializer, default: null
+  association :questions, blueprint: QuestionSerializer, default: []
 end

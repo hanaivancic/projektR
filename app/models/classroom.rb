@@ -17,7 +17,7 @@
 #  fk_rails_...  (school_id => schools.id)
 #
 class Classroom< ApplicationRecord
-  has_one :owner, as: :owned
+  has_many :decks
   has_many :students
   has_and_belongs_to_many :teachers
 

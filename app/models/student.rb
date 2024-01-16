@@ -21,7 +21,7 @@
 class Student < ApplicationRecord
   has_secure_token
   
-  has_one :owner, as: :owned
+  has_many :decks
   belongs_to :classroom
   has_many :student_questions, dependent: :destroy
   has_one :statistic, dependent: :destory
