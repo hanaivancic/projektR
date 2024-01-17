@@ -25,6 +25,6 @@ class DeckSerializer < Blueprinter::Base
   fields :name, :created_at, :updated_at
 
   association :student, blueprint: StudentSerializer
-  association :classroom, blueprint: ClassrooomSerializer
+  association :classroom, blueprint: ClassroomSerializer
   association :questions, blueprint: QuestionSerializer, default: []
 end
