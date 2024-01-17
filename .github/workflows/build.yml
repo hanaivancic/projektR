@@ -1,0 +1,12 @@
+# .github/workflows/build.yml
+
+name: build
+
+on:
+pull_request:
+branches: [ master ]
+
+env:
+RAILS_ENV: test
+BUNDLE_WITHOUT: development
+RAILS_MASTER_KEY: 27af8270f49ef4aba4ca5c8a4e378b4a
