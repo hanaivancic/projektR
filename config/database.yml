@@ -19,3 +19,13 @@ development:
 
 test:
   <<: *default
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: <%= Rails.application.credentials.database_host %>
+  port: <%= Rails.application.credentials.database_port %>
+  database: <%= Rails.application.credentials.database_name %>
+  username: <%= Rails.application.credentials.database_username %>
+  password: <%= Rails.application.credentials.database_password %>
