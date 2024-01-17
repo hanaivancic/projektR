@@ -8,8 +8,8 @@
 #  updated_at :datetime         not null
 #
 class School < ApplicationRecord
-  has_many :classrooms, dependent: :destory
-  has_many :teachers, dependent: :destory
+  has_many :classrooms, dependent: :destroy
+  has_many :teachers, dependent: :destroy
 
   validates :name, presence: true, length: { minimum: 2 }
 end

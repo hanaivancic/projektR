@@ -24,7 +24,7 @@ class Student < ApplicationRecord
   has_many :decks
   belongs_to :classroom
   has_many :student_questions, dependent: :destroy
-  has_one :statistic, dependent: :destory
+  has_one :statistic, dependent: :destroy
 
   validates :firstName, presence: true, length: { minimum: 2 }
   validates :lastName, presence: true, length: { minimum: 2 }
