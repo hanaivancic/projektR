@@ -21,7 +21,7 @@
 #  fk_rails_...  (question_id => questions.id)
 #  fk_rails_...  (student_id => students.id)
 #
-class StudentSerializer < Blueprinter::Base
+class StudentQuestionSerializer < Blueprinter::Base
   identifier :id
 
   fields :grade, :question, :answer, :created_at, :updated_at
